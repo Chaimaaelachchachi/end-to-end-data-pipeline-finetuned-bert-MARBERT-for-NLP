@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# the directory where the scraping scripts are located
+cd /path/to/scraping/scripts
+
+# Run your scraping scripts
+python youtube.py
+python hespress.py
+python facebook.py
+python twitter.py
+python hibapress.py
+
+# the directory where the data preprocessing script is located
+cd /path/to/preprocessing/script
+
+# Run the script to preprocess the data
+python preprocess_data.py
+
+# Change to the directory where the import script is located(excel to db)
+cd /path/to/import/script
+
+# Run the script to import data into the database
+python import_data.py
+
+chmod +x daily_job.sh
+crontab -e
+0 0 * * * /path/to/daily_job.sh
